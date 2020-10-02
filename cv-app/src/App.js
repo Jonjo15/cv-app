@@ -12,29 +12,42 @@ class App extends React.Component {
       lastName: "",
       email: "",
       phone: "",
-      personalEditing: true,
-      education: [],
+      isEditingPersonal: false,
+      isEditingEducation: false,
+      education: [
+        { school: "Fancy School", degree: "Engineer", graduationDate: "2020" },
+      ],
       experience: [],
     };
   }
-  handleSubmit = (e) => {
-    e.preventDefault();
+  handleEditPersonal = () => {
+    this.setState((prevState) => {
+      const updatedState = { ...prevState };
+      updatedState.isEditingPersonal = !prevState.isEditingPersonal;
+      return updatedState;
+    });
     console.log("hey");
+  };
+  handleSubmit = (e) => {
+    this.setState({ isEditingPersonal: true });
+    e.preventDefault();
   };
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
   render() {
+    const education = this.state.education;
     return (
       <div>
         <h1>CV APP</h1>
         <PersonalInfo
+          handleEditPersonal={this.handleEditPersonal}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           data={this.state}
         />
-        <Education />
+        <Education data={education} />
         <Experience />
       </div>
     );

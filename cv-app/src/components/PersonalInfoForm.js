@@ -7,28 +7,28 @@ function InfoForm(props) {
         type="text"
         placeholder="First Name"
         name="firstName"
-        value={props.firstName}
+        value={props.data.firstName}
         onChange={props.handleChange}
       />
       <input
         type="text"
         placeholder="Last Name"
         name="lastName"
-        value={props.lastName}
+        value={props.data.lastName}
         onChange={props.handleChange}
       />
       <input
         type="number"
         placeholder="Phone"
         name="phone"
-        value={props.phone}
+        value={props.data.phone}
         onChange={props.handleChange}
       />
       <input
         type="email"
         placeholder="Email"
         name="email"
-        value={props.email}
+        value={props.data.email}
         onChange={props.handleChange}
       />
       <button type="submit">Submit</button>

@@ -1,7 +1,12 @@
 import React from "react";
 
 function Education(props) {
-  return <h2>Education</h2>;
+  return (
+    <div>
+      <h2>Education</h2>
+      {props.data[0].school}
+    </div>
+  );
 }
 
 export default Education;
