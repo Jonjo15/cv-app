@@ -29,6 +29,11 @@ class App extends React.Component {
     });
     console.log("hey");
   };
+  /* editEducation() {
+    this.setState((prevState) => {
+      return { ...prevState, isEditingEducation: true };
+    });
+  } */
   handleSubmit = (e) => {
     this.setState({ isEditingPersonal: true });
     e.preventDefault();
@@ -54,6 +59,7 @@ class App extends React.Component {
           data={this.state}
         />
         <Education
+          editEducation={this.editEducation}
           data={education}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
