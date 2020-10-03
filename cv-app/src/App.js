@@ -16,6 +16,7 @@ class App extends React.Component {
       isEditingEducation: false,
       education: [
         { school: "Fancy School", degree: "Engineer", graduationDate: "2020" },
+        { school: "Zadar", degree: "Gimnazijalac", graduationDate: "2015" },
       ],
       experience: [],
     };
@@ -34,6 +35,11 @@ class App extends React.Component {
   };
   handleChange = (e) => {
     const { name, value } = e.target;
+    /* if (name === "education") {
+      this.setState(prevState=> {
+
+      })
+    } */
     this.setState({ [name]: value });
   };
   render() {
@@ -47,7 +53,11 @@ class App extends React.Component {
           handleSubmit={this.handleSubmit}
           data={this.state}
         />
-        <Education data={education} />
+        <Education
+          data={education}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
         <Experience />
       </div>
     );
