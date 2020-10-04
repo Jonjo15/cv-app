@@ -1,12 +1,16 @@
 body {
-  margin: 0;
+  background-color: grey;
+  margin: auto;
+  text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.app {
+  background-color: grey;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -15,7 +19,9 @@ li {
   list-style: none;
 }
 p {
+  margin: 10px;
   padding: 1px 2px;
   min-width: 165px;
   padding-right: 20px;
+  font-family: "Courier New", Courier, monospace;
 }

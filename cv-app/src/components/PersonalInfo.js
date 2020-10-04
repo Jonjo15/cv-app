@@ -4,7 +4,7 @@ const PersonalInfo = (props) => {
   if (!props.data.isEditingPersonal) {
     return (
       <div>
-        <h2>Personal Information</h2>
+        <h3>Personal Information</h3>
         <InfoForm
           handleChange={props.handleChange}
           data={props.data}
@@ -15,7 +15,7 @@ const PersonalInfo = (props) => {
   } else {
     return (
       <div>
-        <h2>Personal Information</h2>
+        <h3>Personal Information</h3>
         <p>First Name: {props.data.firstName}</p>
         <p>Last Name: {props.data.lastName}</p>
         <p>Phone: {props.data.phone}</p>

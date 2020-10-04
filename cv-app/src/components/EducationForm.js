@@ -3,7 +3,7 @@ import React from "react";
 function EducationForm(props) {
   return (
     <div>
-      <h2>Education</h2>
+      <h3>Education</h3>
       <form>
         <input
           type="text"

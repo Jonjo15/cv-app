@@ -23,8 +23,8 @@ class Education extends React.Component {
   };
   render() {
     return !this.state.isEditing ? (
-      <div>
-        <h2>Education</h2>
+      <div className="educationDiv">
+        <h3>Education</h3>
         <p>School: {this.state.school}</p>
         <p>Degree: {this.state.degree}</p>
         <p>Graduation Year: {this.state.graduationYear}</p>

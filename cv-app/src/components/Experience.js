@@ -25,8 +25,8 @@ class Experience extends React.Component {
   };
   render() {
     return !this.state.isEditing ? (
-      <div>
-        <h2>Experience</h2>
+      <div className="experienceDiv">
+        <h3>Experience</h3>
         <p>Company Name: {this.state.companyName}</p>
         <p>Role: {this.state.role}</p>
         <p>Responsibilities: {this.state.responsibilities}</p>

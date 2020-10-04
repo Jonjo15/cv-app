@@ -50,8 +50,8 @@ class App extends React.Component {
   render() {
     const education = this.state.education;
     return (
-      <div>
-        <h1>CV APP</h1>
+      <div className="app">
+        <h2>Curriculum Vitae</h2>
         <PersonalInfo
           handleEditPersonal={this.handleEditPersonal}
           handleChange={this.handleChange}

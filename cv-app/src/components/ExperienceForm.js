@@ -3,7 +3,7 @@ import React from "react";
 function ExperienceForm(props) {
   return (
     <div>
-      <h2>Experience</h2>
+      <h3>Experience</h3>
       <form onSubmit={props.handleSubmit}>
         <input
           type="text"
