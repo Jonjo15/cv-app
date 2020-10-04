@@ -1,57 +1,34 @@
 import React from "react";
 
-class EducationForm extends React.Component {
-  constructor() {
-    super();
-    this.state = { school: "", degree: "", graduationYear: "" };
-    this.uid = this.uid.bind(this);
-  }
-  /*  const uid = function(){
-    return Date.now().toString(36) + Math.random().toString(36).substr(2);
-} */
-  uid() {
-    return Date.now().toString(36) + Math.random().toString(36).substr(2);
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    // console.log(this.uid());
-    //console.log(this.state);
-    this.props.switchEdit();
-    this.props.addToEducation(this.state);
-  };
-  handleChange = (e) => {
-    const { value, name } = e.target;
-    const id = this.uid();
-    this.setState({ [name]: value, id: id });
-  };
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
+function EducationForm(props) {
+  return (
+    <div>
+      <h2>Education</h2>
+      <form>
         <input
-          name="school"
-          value={this.state.school}
           type="text"
           placeholder="School"
-          onChange={this.handleChange}
-        ></input>
+          name="school"
+          value={props.data.school}
+          onChange={props.handleChange}
+        />
         <input
-          name="degree"
-          value={this.state.degree}
           type="text"
           placeholder="Degree"
-          onChange={this.handleChange}
-        ></input>
-        <label>Graduation Date: </label>
+          name="degree"
+          value={props.data.degree}
+          onChange={props.handleChange}
+        />
         <input
-          name="graduationYear"
-          value={this.state.graduationYear}
           type="number"
-          onChange={this.handleChange}
-        ></input>
-        <button>Submit</button>
+          placeholder="Graduation Year"
+          name="graduationYear"
+          value={props.data.graduationYear}
+          onChange={props.handleChange}
+        />
+        <button onClick={props.handleSubmit}>Submit</button>
       </form>
-    );
-  }
+    </div>
+  );
 }
 export default EducationForm;
