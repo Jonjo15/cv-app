@@ -1,44 +1,53 @@
-import React from "react";
-import EducationForm from "./EducationForm";
-class Education extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      school: "",
-      degree: "",
-      graduationYear: "",
-      isEditing: true,
-    };
-  }
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.setState({ isEditing: false });
-  };
-  handleEdit = (e) => {
-    this.setState({ isEditing: true });
-  };
-  handleChange = (e) => {
-    const { value, name } = e.target;
-    this.setState({ [name]: value });
-  };
-  render() {
-    return !this.state.isEditing ? (
-      <div className="educationDiv">
-        <h3>Education</h3>
-        <p>School: {this.state.school}</p>
-        <p>Degree: {this.state.degree}</p>
-        <p>Graduation Year: {this.state.graduationYear}</p>
+import React, { useState } from "react";
 
-        <button onClick={this.handleEdit}>Edit</button>
+function Education(props) {
+  const [school, setSchool] = useState("");
+  const [degree, setDegree] = useState("");
+  const [graduationYear, setGraduationYear] = useState("");
+  const [isEditing, setIsEditing] = useState(true);
+
+  if (isEditing) {
+    return (
+      <div>
+        <h2>Education</h2>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            setIsEditing(false);
+          }}
+        >
+          <input
+            onChange={(e) => setSchool(e.target.value)}
+            value={school}
+            type="text"
+            placeholder="School"
+          />
+          <input
+            onChange={(e) => setDegree(e.target.value)}
+            value={degree}
+            type="text"
+            placeholder="Degree"
+          />
+          <input
+            onChange={(e) => setGraduationYear(e.target.value)}
+            value={graduationYear}
+            type="text"
+            placeholder="Graduation Year"
+          />
+          <button>Submit</button>
+        </form>
       </div>
-    ) : (
-      <EducationForm
-        handleChange={this.handleChange}
-        data={this.state}
-        handleSubmit={this.handleSubmit}
-      />
+    );
+  } else {
+    return (
+      <div>
+        <h2>Education</h2>
+        <p>School: {school}</p>
+        <p>Degree: {degree}</p>
+        <p>Graduation Year: {graduationYear}</p>
+        <button onClick={() => setIsEditing(true)}>Edit</button>
+      </div>
     );
   }
 }
-
 export default Education;

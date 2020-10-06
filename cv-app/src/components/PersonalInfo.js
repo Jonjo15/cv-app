@@ -1,26 +1,51 @@
-import React from "react";
-import InfoForm from "./PersonalInfoForm";
+import React, { useState } from "react";
 const PersonalInfo = (props) => {
-  if (!props.data.isEditingPersonal) {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [isEditing, setIsEditing] = useState(true);
+  function handleSubmit(e) {
+    e.preventDefault();
+    setIsEditing(false);
+  }
+  if (isEditing) {
     return (
       <div>
-        <h3>Personal Information</h3>
-        <InfoForm
-          handleChange={props.handleChange}
-          data={props.data}
-          handleSubmit={props.handleSubmit}
-        />
+        <h2>Personal Information</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            placeholder="Full name"
+            value={name}
+            name="name"
+            onChange={(e) => setName(e.target.value)}
+            type="text"
+          ></input>
+          <input
+            placeholder="Phone"
+            value={phone}
+            name="phone"
+            onChange={(e) => setPhone(e.target.value)}
+            type="number"
+          ></input>
+          <input
+            placeholder="Email"
+            value={email}
+            name="email"
+            onChange={(e) => setEmail(e.target.value)}
+            type="text"
+          ></input>
+          <button>Submit</button>
+        </form>
       </div>
     );
   } else {
     return (
       <div>
-        <h3>Personal Information</h3>
-        <p>First Name: {props.data.firstName}</p>
-        <p>Last Name: {props.data.lastName}</p>
-        <p>Phone: {props.data.phone}</p>
-        <p>Email: {props.data.email}</p>
-        <button onClick={props.handleEditPersonal}>Edit</button>
+        <h2>Personal Information</h2>
+        <p>Name: {name}</p>
+        <p>Phone: {phone}</p>
+        <p>Email: {email}</p>
+        <button onClick={(e) => setIsEditing(true)}>Edit</button>
       </div>
     );
   }
